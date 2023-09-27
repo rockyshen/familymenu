@@ -1,8 +1,16 @@
+from typing import Any
 from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
 
 # Create your models here.
+class Category(models.Model):
+    title = models.CharField(max_length=255)
+
+    def __str__(self) -> str:
+        return self.title
+
+
 class Chef(models.Model):
     phone = models.CharField(max_length=255,null=True)
     user = models.OneToOneField(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
@@ -27,6 +35,7 @@ class Menu(models.Model):
     description = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     chef = models.OneToOneField(Chef,on_delete=models.CASCADE)  # Menu与Chef是一对一
+    category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name='menu')
 
     def save(self, *args, **kwargs):    # 重写save，解决中文title转slug问题
         if not self.slug:
