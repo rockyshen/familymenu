@@ -45,7 +45,7 @@ class Menu(models.Model):
 
 class MenuImage(models.Model):
     menu = models.OneToOneField(Menu,on_delete=models.CASCADE,related_name='images')
-    # image = models.ImageField(upload_to='')   # 待补充
+    image = models.ImageField(upload_to='menu/images')
 
 
 
