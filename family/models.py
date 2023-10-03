@@ -34,7 +34,7 @@ class Menu(models.Model):
     slug = models.SlugField(unique=True, max_length=200, blank=True)
     description = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
-    chef = models.OneToOneField(Chef,on_delete=models.CASCADE)  # Menu与Chef是一对一
+    chef = models.ForeignKey(Chef,on_delete=models.CASCADE)  # Menu与Chef是多对一
     category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name='menu')
 
     def save(self, *args, **kwargs):    # 重写save，解决中文title转slug问题
