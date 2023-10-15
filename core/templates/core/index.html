@@ -1,23 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>
-    Family Menu
-  </title>
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'core/styles.css' %}">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Family Menu
+    </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/normalize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'core/styles.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
   <body>
-    <div id="menu-container">
-      <!-- 这是一个容器，用于包含多个菜单项 -->
-    </div>
+    <div id="menu-container" class="container"></div>
     <script type="text/javascript" src="{% static 'core/main.js' %}"></script>
   </body>
-  <script type="text/javascript" src="{% static 'core/main.js' %}"></script>
-</body>
 </html>

@@ -1,19 +1,56 @@
-.fixed-size-image {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-  }
+/* 伪选择器，设置全局配色方案 */
+:root {
+  --color-primary: #2584ff;
+  --color-secondary: #00d9ff;
+  --color-accent: #ff3400;
+  --color-headings: #1b0760;
+  --color-body: #918ca4;
+  --color-body-darker: #5c5577;
+  --color-border: #ccc;
+  --border-radius: 30px;
+}
 
-  #menu-container {
-    display: flex;
-    flex-wrap: wrap; /* 允许元素自动换行 */
-    justify-content: space-between; /* 均匀分布在水平方向 */
-    align-items: flex-start; /* 控制垂直对齐方式，可以根据需要更改 */
-  }
-  
-  .menu-item {
-    flex-basis: calc(33.33% - 10px); /* 每行显示三个，可根据需要调整 */
-    margin-right: 10px; /* 为了在元素之间添加间隔 */
-    margin-bottom: 10px; /* 为了在行之间添加间隔 */
-  }
-  
+/* 全局设置最大的宽度，超过宽度不会拉伸元素 */
+/* 上下margin为0，左右margin自动适应 */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 15rem 15rem 15rem;
+  grid-gap: 2rem;
+}
+
+.menu-item img {
+  justify-content: center;
+  align-items: center;
+}
+
+.fixed-size-image {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+}
+
+.card {
+  border-radius: 7px;
+  box-shadow: 0 0 20px 10px #f3f3f3;
+  overflow: hidden;
+}
+
+.card--primary {
+  background-color: var(--color-border);
+  color: var(--color-primary);
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.5s;
+}
+
+.card__p {
+  padding-left: 1rem;
+}
+
+.card__h2 {
+  padding-left: 1rem;
+}
